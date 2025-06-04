@@ -22,23 +22,4 @@ if st.button("Generate Live SOTA Report"):
             "1. Therapeutic alternatives\n"
             "2. Clinical outcome parameters and typical acceptance criteria\n"
             "3. Safety and performance requirements\n"
-            "4. Guidelines or regulatory references (fictional but plausible)\n"
-            "Present results in clear bullet points for each section."
-        )
-
-        with st.spinner("Generating plausible SOTA summary..."):
-            response = client.chat.completions.create(
-                model="gpt-4",
-                messages=[
-                    {"role": "system", "content": "You summarize clinical device evidence."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.7
-            )
-
-            result = response.choices[0].message.content
-            st.markdown("---")
-            st.markdown("### Generated SOTA Report")
-            st.markdown(result)
-    else:
-        st.warning("Please enter a device type or name first.")
+            "4. Guidelines or regulatory references (fictio
