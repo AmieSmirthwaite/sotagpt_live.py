@@ -1,4 +1,3 @@
-
 import streamlit as st
 import openai
 
@@ -14,5 +13,5 @@ device_query = st.text_input("Device Type or Product Name", placeholder="e.g., r
 if st.button("Generate Live SOTA Report"):
     if device_query:
         # AI prompt to generate plausible conclusions
-        prompt = f"""
-        You are
+        prompt = (
+            f"You are a clinical evidence analyst. Based on the device: '{device_query}', "
