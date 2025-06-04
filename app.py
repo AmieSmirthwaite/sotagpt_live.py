@@ -1,6 +1,10 @@
 import streamlit as st
 import openai
 
+# Set your OpenAI API key (you can use secrets in Streamlit Cloud for safety)
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = openai.OpenAI()
+
 st.set_page_config(page_title="SotaGPT Live: Real-Time SOTA Generator", layout="centered")
 
 st.title("SotaGPT Live: Real-Time SOTA Summary Generator")
@@ -23,7 +27,7 @@ if st.button("Generate Live SOTA Report"):
         )
 
         with st.spinner("Generating plausible SOTA summary..."):
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-4",
                 messages=[
                     {"role": "system", "content": "You summarize clinical device evidence."},
